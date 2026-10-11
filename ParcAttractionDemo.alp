@@ -645,7 +645,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[800]]></Code>
+							<Code><![CDATA[60]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1728689679147</Id>
@@ -2319,7 +2319,7 @@ guestsInPark=guestsInPark-1;]]></Code>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[// Exit only if totally exhausted and already ate, or let them stay for N rides
-agent.visitorData != null && agent.visitorData.personalEnergy <= 0.5 && agent.visitorData.hunger <= 2.0]]></Code>
+agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorData.hunger >= 9.0)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2685,10 +2685,7 @@ agent.visitorData != null && agent.visitorData.personalEnergy <= 0.5 && agent.vi
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (ped.tasks != null && !ped.tasks.isEmpty()) {
-ped.tasks.removeFirst();
-}
-if (ped.visitorData != null) {
+								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.hunger = uniform(0.0, 1.5); // Reset hunger to full
     ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy + 2.0);
 }]]></Code>
@@ -2922,20 +2919,15 @@ if(dispatchRollerCoaster==rollerCoasterCapacity-1){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[if(rollerCoasterRide.size()==0){
-	rollerCoasterService.cancel(currentPedRollerCoaster);
-}]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (randomTrue(reDoRollerCoasterProbability))
-{
-	ped.tasks.add(new Task(TaskType.ROLLERCOASTER, 0));
-}
-Collections.shuffle(ped.tasks, getEngine().getDefaultRandomGenerator());]]></Code>
+								<Code><![CDATA[ped.nRound++; // Track that they finished a round
+if (ped.visitorData != null) {
+    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - 1.0);
+    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + 0.5);
+}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2958,6 +2950,10 @@ Collections.shuffle(ped.tasks, getEngine().getDefaultRandomGenerator());]]></Cod
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[reachTolerance]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[1]]></Code>
+								<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onRemove]]></Name>
@@ -3505,11 +3501,11 @@ if(dispatchFlatRide==flatRideCapacity-1){
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (randomTrue(reDoFlatRideProbability))
-{
-	ped.tasks.add(new Task(TaskType.FLATRIDE, 0));
-}
-Collections.shuffle(ped.tasks, getEngine().getDefaultRandomGenerator());]]></Code>
+								<Code><![CDATA[ped.nRound++; // Track that they finished a round
+if (ped.visitorData != null) {
+    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - 1.0);
+    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + 0.5);
+}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3532,6 +3528,10 @@ Collections.shuffle(ped.tasks, getEngine().getDefaultRandomGenerator());]]></Cod
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[reachTolerance]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[1]]></Code>
+								<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onRemove]]></Name>
@@ -4000,8 +4000,11 @@ Collections.shuffle(ped.tasks, getEngine().getDefaultRandomGenerator());]]></Cod
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (ped.tasks != null && !ped.tasks.isEmpty()) {
-ped.tasks.removeFirst();}]]></Code>
+								<Code><![CDATA[ped.nRound++; // Track that they finished a round
+if (ped.visitorData != null) {
+    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy + 0.5);
+    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + 0.5);
+}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4115,10 +4118,7 @@ ped.tasks.removeFirst();}]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEndService]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (ped.tasks != null && !ped.tasks.isEmpty()) {
-ped.tasks.removeFirst();}
-
-if (ped.visitorData != null) {
+								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy + 4.0);
 }]]></Code>
 							</Value>
@@ -5930,11 +5930,11 @@ if (ped.visitorData != null) {
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>-10</Y></Point>
-						<Point><X>0</X><Y>10</Y></Point>
-						<Point><X>180</X><Y>0</Y></Point>
-						<Point><X>180</X><Y>-10</Y></Point>
-						<Point><X>180</X><Y>10</Y></Point>
+						<Point><X>0</X><Y>-30</Y></Point>
+						<Point><X>0</X><Y>30</Y></Point>
+						<Point><X>190</X><Y>0</Y></Point>
+						<Point><X>190</X><Y>-30</Y></Point>
+						<Point><X>190</X><Y>30</Y></Point>
 					</Points>
 				</Pathway>
 				<ServiceWithLine>
@@ -7644,11 +7644,11 @@ if (ped.visitorData != null) {
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>10</Y></Point>
-						<Point><X>0</X><Y>-10</Y></Point>
-						<Point><X>-115</X><Y>0</Y></Point>
-						<Point><X>-115</X><Y>10</Y></Point>
-						<Point><X>-115</X><Y>-10</Y></Point>
+						<Point><X>0</X><Y>30</Y></Point>
+						<Point><X>0</X><Y>-30</Y></Point>
+						<Point><X>-120</X><Y>0</Y></Point>
+						<Point><X>-120</X><Y>30</Y></Point>
+						<Point><X>-120</X><Y>-30</Y></Point>
 					</Points>
 				</Pathway>
 				<ServiceWithLine>
