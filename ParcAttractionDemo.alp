@@ -3492,11 +3492,6 @@ if(dispatchFlatRide==flatRideCapacity-1){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[if(flatRideRide.size()==0){
-	flatRideService.cancel(currentPedFlatRide);
-}]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
