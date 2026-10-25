@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.9.202607020844" AlpVersion="8.9.9">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.10.202609231424" AlpVersion="8.9.10">
 <Model>
 	<Id>1728474454631</Id>
 	<Name><![CDATA[ParcAttractionDemo]]></Name>
@@ -123,6 +123,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					<Code><![CDATA[4]]></Code>
 					<Unit Class="SpeedUnits"><![CDATA[KPH]]></Unit>
 				</VelocityCode>
+				<MessageType><![CDATA[Object]]></MessageType>
 				<PhysicalLength Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
@@ -137,24 +138,30 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 				</PhysicalHeight>
 			</AgentProperties>
 			<EnvironmentProperties>
-					<EnableSteps>false</EnableSteps>
-					<StepDurationCode Class="CodeUnitValue">
-						<Code><![CDATA[1.0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-					</StepDurationCode>
-					<SpaceType>CONTINUOUS</SpaceType>
-					<WidthCode><![CDATA[500]]></WidthCode>
-					<HeightCode><![CDATA[500]]></HeightCode>
-					<ZHeightCode><![CDATA[0]]></ZHeightCode>
-					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
-					<RowsCountCode><![CDATA[100]]></RowsCountCode>
-					<NeigborhoodType>MOORE</NeigborhoodType>
-					<LayoutType>USER_DEF</LayoutType>
-					<NetworkType>USER_DEF</NetworkType>
-					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
-					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
-					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
-					<MCode><![CDATA[10]]></MCode>
+				<EnableSteps>false</EnableSteps>
+				<StepDurationCode Class="CodeUnitValue">
+					<Code><![CDATA[1.0]]></Code>
+					<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+				</StepDurationCode>
+				<SpaceType>CONTINUOUS</SpaceType>
+				<WidthCode><![CDATA[500]]></WidthCode>
+				<HeightCode><![CDATA[500]]></HeightCode>
+				<ZHeightCode><![CDATA[0]]></ZHeightCode>
+				<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+				<RowsCountCode><![CDATA[100]]></RowsCountCode>
+				<NeigborhoodType>MOORE</NeigborhoodType>
+				<LayoutType>USER_DEF</LayoutType>
+				<NetworkType>USER_DEF</NetworkType>
+				<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+				<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+				<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+				<MCode><![CDATA[10]]></MCode>
+				<LineStyle>SOLID</LineStyle>
+				<LineWidth>1</LineWidth>
+				<LineColor>-16777216</LineColor>
+				<LineZOrder>UNDER_AGENTS</LineZOrder>
+				<LineArrow>NONE</LineArrow>
+				<LineArrowPosition>END</LineArrowPosition>
 			</EnvironmentProperties>
 			<DatasetsCreationProperties>
 				<AutoCreate>false</AutoCreate>
@@ -187,7 +194,6 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
 			</ScaleRuler>
 			<CurrentLevel>1728474454641</CurrentLevel>
-			<ConnectionsId>1728474454635</ConnectionsId>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1728680431256</Id>
@@ -355,7 +361,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[28]]></Code>
+							<Code><![CDATA[24]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1728576688247</Id>
@@ -380,7 +386,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[50]]></Code>
+							<Code><![CDATA[20]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1728576718943</Id>
@@ -851,7 +857,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 				<Connector>
 					<Id>1728602522273</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>700</X><Y>1390</Y>
+					<X>650</X><Y>1390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -859,11 +865,11 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[rollerCoasterAssemble]]></ItemName>
+						<ItemName><![CDATA[rollerCoasterRide]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
+						<ClassName><![CDATA[PedWait]]></ClassName>
 						<ItemName><![CDATA[in]]></ItemName>
 					</SourceConnectableItemReference>
 					<TargetEmbeddedObjectReference>
@@ -878,13 +884,13 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-140</X><Y>0</Y></Point>
+						<Point><X>-90</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1728602652212</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>1030</X><Y>1390</Y>
+					<X>830</X><Y>1390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -911,48 +917,13 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1728602919525</Id>
-					<Name><![CDATA[connector10]]></Name>
-					<X>550</X><Y>1400</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[rollerCoasterService]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedService]]></ClassName>
-						<ItemName><![CDATA[ccl]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[rollerCoasterAssemble]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>10</Y></Point>
-						<Point><X>70</X><Y>10</Y></Point>
-						<Point><X>150</X><Y>-10</Y></Point>
+						<Point><X>-140</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1728639112060</Id>
 					<Name><![CDATA[connector12]]></Name>
-					<X>700</X><Y>1460</Y>
+					<X>650</X><Y>1460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -960,11 +931,11 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[flatRideAssemble]]></ItemName>
+						<ItemName><![CDATA[flatRideRide]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
+						<ClassName><![CDATA[PedWait]]></ClassName>
 						<ItemName><![CDATA[in]]></ItemName>
 					</SourceConnectableItemReference>
 					<TargetEmbeddedObjectReference>
@@ -979,13 +950,13 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-140</X><Y>0</Y></Point>
+						<Point><X>-90</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1728639112062</Id>
 					<Name><![CDATA[connector13]]></Name>
-					<X>1030</X><Y>1460</Y>
+					<X>830</X><Y>1460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1012,75 +983,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1728639112066</Id>
-					<Name><![CDATA[connector15]]></Name>
-					<X>550</X><Y>1470</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[flatRideService]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedService]]></ClassName>
-						<ItemName><![CDATA[ccl]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[flatRideAssemble]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>10</Y></Point>
-						<Point><X>70</X><Y>10</Y></Point>
-						<Point><X>150</X><Y>-10</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1728676203487</Id>
-					<Name><![CDATA[connector7]]></Name>
-					<X>940</X><Y>1390</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[rollerCoasterRide]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedWait]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[rollerCoasterDisassemble]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-60</X><Y>0</Y></Point>
+						<Point><X>-140</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -1403,7 +1306,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 				<Connector>
 					<Id>1728677996195</Id>
 					<Name><![CDATA[connector22]]></Name>
-					<X>1070</X><Y>1460</Y>
+					<X>870</X><Y>1460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1430,17 +1333,17 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>210</Y></Point>
-						<Point><X>-770</X><Y>210</Y></Point>
-						<Point><X>-770</X><Y>-100</Y></Point>
-						<Point><X>-750</X><Y>-120</Y></Point>
+						<Point><X>260</X><Y>0</Y></Point>
+						<Point><X>260</X><Y>210</Y></Point>
+						<Point><X>-570</X><Y>210</Y></Point>
+						<Point><X>-570</X><Y>-100</Y></Point>
+						<Point><X>-550</X><Y>-120</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1728677961510</Id>
 					<Name><![CDATA[connector21]]></Name>
-					<X>1070</X><Y>1390</Y>
+					<X>870</X><Y>1390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1467,110 +1370,11 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, 0.0, 2.0));]]></Startup
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>280</Y></Point>
-						<Point><X>-770</X><Y>280</Y></Point>
-						<Point><X>-770</X><Y>-30</Y></Point>
-						<Point><X>-750</X><Y>-50</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1728693153597</Id>
-					<Name><![CDATA[connector14]]></Name>
-					<X>740</X><Y>1390</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[rollerCoasterAssemble]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[rollerCoasterDisassemble]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>100</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1728676372956</Id>
-					<Name><![CDATA[connector11]]></Name>
-					<X>940</X><Y>1460</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[flatRideRide]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedWait]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[flatRideDisassemble]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-60</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1728860168807</Id>
-					<Name><![CDATA[connector26]]></Name>
-					<X>840</X><Y>1460</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[flatRideDisassemble]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[flatRideAssemble]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-100</X><Y>0</Y></Point>
+						<Point><X>260</X><Y>0</Y></Point>
+						<Point><X>260</X><Y>280</Y></Point>
+						<Point><X>-570</X><Y>280</Y></Point>
+						<Point><X>-570</X><Y>-30</Y></Point>
+						<Point><X>-550</X><Y>-50</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -1701,27 +1505,6 @@ for (int i = 0; i < attractions.size(); i++) {
 return bestExit;]]></Body>
 				</Function>
 			</Functions>
-			<AgentLinks>
-				<AgentLink>
-					<Id>1728474454635</Id>
-					<Name><![CDATA[connections]]></Name>
-					<X>-210</X><Y>-50</Y>
-					<Label><X>15</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<HandleReceiveInConnections>false</HandleReceiveInConnections>
-					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
-					<AgentLinkBidirectional>true</AgentLinkBidirectional>
-					<MessageType><![CDATA[Object]]></MessageType>
-					<LineStyle>SOLID</LineStyle>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineZOrder>UNDER_AGENTS</LineZOrder>
-					<LineArrow>NONE</LineArrow>
-					<LineArrowPosition>END</LineArrowPosition>
-				</AgentLink>
-			</AgentLinks>
 
 			<EmbeddedObjects>
 				<EmbeddedObject>
@@ -2786,7 +2569,7 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[attenteRollerCoaster]]></Code>
+								<Code><![CDATA[2]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -2814,25 +2597,12 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginService]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[currentPedRollerCoaster=ped]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEndService]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[attenteRollerCoaster=0;
-if(dispatchRollerCoaster==rollerCoasterCapacity-1){
-	attenteRollerCoaster=999999;
-	dispatchRollerCoaster=0;
-}]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[dispatchRollerCoaster=dispatchRollerCoaster+1;]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -2879,7 +2649,7 @@ if(dispatchRollerCoaster==rollerCoasterCapacity-1){
 				<EmbeddedObject>
 					<Id>1728578995293</Id>
 					<Name><![CDATA[rollerCoasterExit]]></Name>
-					<X>1030</X><Y>1380</Y>
+					<X>830</X><Y>1380</Y>
 					<Label><X>0</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2901,14 +2671,11 @@ if(dispatchRollerCoaster==rollerCoasterCapacity-1){
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[locationType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.LOCATION_NODE]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[targetLineEntrance]]></Code>
+								<Code><![CDATA[rollerCoasterExitLine]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2935,9 +2702,6 @@ if (ped.visitorData != null) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[mode]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.MODE_FOLLOW_ROUTE]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[route]]></Name>
@@ -3004,122 +2768,14 @@ if (ped.visitorData != null) {
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1728602520474</Id>
-					<Name><![CDATA[rollerCoasterAssemble]]></Name>
-					<X>700</X><Y>1380</Y>
-					<Label><X>-50</X><Y>-25</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-							<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-							<ItemName><![CDATA[1412464601200]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[locationNode]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[rollerCoasterArea1]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[assemblingMode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupingMode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupingTimeout]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupingTimeGap]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupSize]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[rollerCoasterCapacity]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[matchingCondition]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[isAssemblyFinished]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupFormation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[serviceGroupBehavior]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBeginGrouping]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEndGrouping]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onCancel]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1728474439961</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1728602640742</Id>
 					<Name><![CDATA[rollerCoasterRide]]></Name>
-					<X>940</X><Y>1380</Y>
+					<X>650</X><Y>1380</Y>
 					<Label><X>-15</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
+					<PresentationId>1792906692792</PresentationId>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
 						<ClassName><![CDATA[PedWait]]></ClassName>
@@ -3183,12 +2839,22 @@ if (ped.visitorData != null) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[maximumCapacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[rollerCoasterCapacity]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[targetReachTolerance]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[1.0]]></Code>
+								<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
@@ -3245,75 +2911,7 @@ if (ped.visitorData != null) {
 					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
 					<QuantityColumn>
 					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1728637169680</Id>
-					<Name><![CDATA[rollerCoasterDisassemble]]></Name>
-					<X>840</X><Y>1380</Y>
-					<Label><X>-70</X><Y>-25</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-							<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-							<ItemName><![CDATA[1412464601121]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBeforeDisassemble]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[if (ped.tasks != null && !ped.tasks.isEmpty()) {
-    ped.tasks.removeFirst();
-}]]></Code>
-							</Value>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1728474439959</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
+					<Logging>false</Logging>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1728639111976</Id>
@@ -3387,25 +2985,12 @@ if (ped.visitorData != null) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginService]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[currentPedFlatRide=ped]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEndService]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[attenteFlatRide=0;
-if(dispatchFlatRide==flatRideCapacity-1){
-	attenteFlatRide=999999;
-	dispatchFlatRide=0;
-}]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[dispatchFlatRide=dispatchFlatRide+1;]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -3452,7 +3037,7 @@ if(dispatchFlatRide==flatRideCapacity-1){
 				<EmbeddedObject>
 					<Id>1728639111994</Id>
 					<Name><![CDATA[flatRideExit]]></Name>
-					<X>1030</X><Y>1450</Y>
+					<X>830</X><Y>1450</Y>
 					<Label><X>0</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3474,14 +3059,11 @@ if(dispatchFlatRide==flatRideCapacity-1){
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[locationType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.LOCATION_NODE]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[targetLineEntrance]]></Code>
+								<Code><![CDATA[flatRideExitLine]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3508,14 +3090,11 @@ if (ped.visitorData != null) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[mode]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.MODE_FOLLOW_ROUTE]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[route]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[exitFlatRide]]></Code>
+								<Code><![CDATA[flatRideExitLine]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3577,128 +3156,9 @@ if (ped.visitorData != null) {
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1728639112011</Id>
-					<Name><![CDATA[flatRideAssemble]]></Name>
-					<X>700</X><Y>1450</Y>
-					<Label><X>-50</X><Y>-25</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-							<ClassName><![CDATA[PedGroupAssemble]]></ClassName>
-							<ItemName><![CDATA[1412464601200]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[locationNode]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[flatRideArea]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[assemblingMode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupingMode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupingTimeout]]></Name>
-							<Value Class="CodeUnitValue">
-								<Code><![CDATA[exponential(12)]]></Code>
-								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupingTimeGap]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupSize]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[flatRideCapacity]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[matchingCondition]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[isAssemblyFinished]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.size()==50]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[groupFormation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[serviceGroupBehavior]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBeginGrouping]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEndGrouping]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onCancel]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1728474439956</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1728639112031</Id>
 					<Name><![CDATA[flatRideRide]]></Name>
-					<X>940</X><Y>1450</Y>
+					<X>650</X><Y>1450</Y>
 					<Label><X>-15</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3766,15 +3226,22 @@ if (ped.visitorData != null) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[maximumCapacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[50]]></Code>
+								<Code><![CDATA[flatRideCapacity]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[targetReachTolerance]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[1]]></Code>
+								<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
@@ -3825,75 +3292,6 @@ if (ped.visitorData != null) {
 					<InitializationType>SPECIFIED_NUMBER</InitializationType>
 					<InitializationDatabaseTableQuery>
 						<Id>1728474439955</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1728639112055</Id>
-					<Name><![CDATA[flatRideDisassemble]]></Name>
-					<X>840</X><Y>1450</Y>
-					<Label><X>-65</X><Y>-25</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-							<ClassName><![CDATA[PedGroupDisassemble]]></ClassName>
-							<ItemName><![CDATA[1412464601121]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBeforeDisassemble]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[if (ped.tasks != null && !ped.tasks.isEmpty()) {
-    ped.tasks.removeFirst();
-}]]></Code>
-							</Value>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1728474439954</Id>
 						<TableReference>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
@@ -4336,7 +3734,7 @@ if (ped.visitorData != null) {
 							<ClassName><![CDATA[fond.png]]></ClassName>
 						</ImageResourceReference>
 					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
+					<OriginalSize>true</OriginalSize>
 				</Image>
 				<Rectangle>
 					<Id>1728727714658</Id>
@@ -5912,26 +5310,6 @@ if (ped.visitorData != null) {
 						<Point><X>-155</X><Y>-175</Y></Point>
 					</Points>
 				</TargetLine>
-				<Pathway>
-					<Id>1728578429970</Id>
-					<Name><![CDATA[exitRollerCoaster]]></Name>
-					<X>100</X><Y>290</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-16744448</LineColor>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>-30</Y></Point>
-						<Point><X>0</X><Y>30</Y></Point>
-						<Point><X>190</X><Y>0</Y></Point>
-						<Point><X>190</X><Y>-30</Y></Point>
-						<Point><X>190</X><Y>30</Y></Point>
-					</Points>
-				</Pathway>
 				<ServiceWithLine>
 					<ServiceColor>-16744448</ServiceColor>
 					<Id>1728594177481</Id>
@@ -7626,26 +7004,6 @@ if (ped.visitorData != null) {
 					<Height>200</Height>
 					<Rotation>180.0</Rotation>
 				</RectangleNode>
-				<Pathway>
-					<Id>1728638868943</Id>
-					<Name><![CDATA[exitFlatRide]]></Name>
-					<X>730</X><Y>365</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-16744448</LineColor>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>30</Y></Point>
-						<Point><X>0</X><Y>-30</Y></Point>
-						<Point><X>-120</X><Y>0</Y></Point>
-						<Point><X>-120</X><Y>30</Y></Point>
-						<Point><X>-120</X><Y>-30</Y></Point>
-					</Points>
-				</Pathway>
 				<ServiceWithLine>
 					<ServiceColor>-16744320</ServiceColor>
 					<Id>1728645918914</Id>
@@ -12105,6 +11463,56 @@ Ride]]></Text>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<TargetLine>
+					<Id>1792900349011</Id>
+					<Name><![CDATA[rollerCoasterExitLine]]></Name>
+					<X>110</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-16744448</LineColor>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>200</X><Y>0</Y></Point>
+					</Points>
+				</TargetLine>
+                <EmbeddedObjectPresentation>
+					<Id>1792906692792</Id>
+					<Name><![CDATA[rollerCoasterRide_presentation]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>0.0</Latitude>
+					<Longitude>0.0</Longitude>
+                </EmbeddedObjectPresentation>
+				<TargetLine>
+					<Id>1792907204755</Id>
+					<Name><![CDATA[flatRideExitLine]]></Name>
+					<X>730</X><Y>370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-16744448</LineColor>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-150</X><Y>0</Y></Point>
+					</Points>
+				</TargetLine>
 			</Presentation>
 
 				</Level>
@@ -12199,6 +11607,7 @@ sh.setVisible(true);]]></StartupCode>
 					<Code><![CDATA[4]]></Code>
 					<Unit Class="SpeedUnits"><![CDATA[KPH]]></Unit>
 				</VelocityCode>
+				<MessageType><![CDATA[Object]]></MessageType>
 				<PhysicalLength Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
@@ -12213,24 +11622,30 @@ sh.setVisible(true);]]></StartupCode>
 				</PhysicalHeight>
 			</AgentProperties>
 			<EnvironmentProperties>
-					<EnableSteps>false</EnableSteps>
-					<StepDurationCode Class="CodeUnitValue">
-						<Code><![CDATA[1.0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-					</StepDurationCode>
-					<SpaceType>CONTINUOUS</SpaceType>
-					<WidthCode><![CDATA[500]]></WidthCode>
-					<HeightCode><![CDATA[500]]></HeightCode>
-					<ZHeightCode><![CDATA[0]]></ZHeightCode>
-					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
-					<RowsCountCode><![CDATA[100]]></RowsCountCode>
-					<NeigborhoodType>MOORE</NeigborhoodType>
-					<LayoutType>USER_DEF</LayoutType>
-					<NetworkType>USER_DEF</NetworkType>
-					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
-					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
-					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
-					<MCode><![CDATA[10]]></MCode>
+				<EnableSteps>false</EnableSteps>
+				<StepDurationCode Class="CodeUnitValue">
+					<Code><![CDATA[1.0]]></Code>
+					<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+				</StepDurationCode>
+				<SpaceType>CONTINUOUS</SpaceType>
+				<WidthCode><![CDATA[500]]></WidthCode>
+				<HeightCode><![CDATA[500]]></HeightCode>
+				<ZHeightCode><![CDATA[0]]></ZHeightCode>
+				<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+				<RowsCountCode><![CDATA[100]]></RowsCountCode>
+				<NeigborhoodType>MOORE</NeigborhoodType>
+				<LayoutType>USER_DEF</LayoutType>
+				<NetworkType>USER_DEF</NetworkType>
+				<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+				<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+				<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+				<MCode><![CDATA[10]]></MCode>
+				<LineStyle>SOLID</LineStyle>
+				<LineWidth>1</LineWidth>
+				<LineColor>-16777216</LineColor>
+				<LineZOrder>UNDER_AGENTS</LineZOrder>
+				<LineArrow>NONE</LineArrow>
+				<LineArrowPosition>END</LineArrowPosition>
 			</EnvironmentProperties>
 			<DatasetsCreationProperties>
 				<AutoCreate>true</AutoCreate>
@@ -12263,7 +11678,6 @@ sh.setVisible(true);]]></StartupCode>
 				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
 			</ScaleRuler>
 			<CurrentLevel>1728474604192</CurrentLevel>
-			<ConnectionsId>1728474604186</ConnectionsId>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1728547417723</Id>
@@ -12347,27 +11761,6 @@ sh.setVisible(true);]]></StartupCode>
 
 				</Variable>
 			</Variables>
-			<AgentLinks>
-				<AgentLink>
-					<Id>1728474604186</Id>
-					<Name><![CDATA[connections]]></Name>
-					<X>50</X><Y>-50</Y>
-					<Label><X>15</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<HandleReceiveInConnections>false</HandleReceiveInConnections>
-					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
-					<AgentLinkBidirectional>true</AgentLinkBidirectional>
-					<MessageType><![CDATA[Object]]></MessageType>
-					<LineStyle>SOLID</LineStyle>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineZOrder>UNDER_AGENTS</LineZOrder>
-					<LineArrow>NONE</LineArrow>
-					<LineArrowPosition>END</LineArrowPosition>
-				</AgentLink>
-			</AgentLinks>
 
 
 			<Presentation>
@@ -12443,7 +11836,7 @@ sh.setVisible(true);]]></StartupCode>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-</Figure3D>
+				</Figure3D>
 				<Figure3D>
 					<Id>1728728576311</Id>
 					<Name><![CDATA[officeWorker2]]></Name>
@@ -12489,7 +11882,7 @@ sh.setVisible(true);]]></StartupCode>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-</Figure3D>
+				</Figure3D>
 				<Figure3D>
 					<Id>1728728576313</Id>
 					<Name><![CDATA[person1]]></Name>
@@ -12539,7 +11932,7 @@ sh.setVisible(true);]]></StartupCode>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-</Figure3D>
+				</Figure3D>
 				<Figure3D>
 					<Id>1728728576315</Id>
 					<Name><![CDATA[person2]]></Name>
@@ -12589,7 +11982,7 @@ sh.setVisible(true);]]></StartupCode>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-</Figure3D>
+				</Figure3D>
 				<Figure3D>
 					<Id>1728728576317</Id>
 					<Name><![CDATA[person3]]></Name>
@@ -12639,7 +12032,7 @@ sh.setVisible(true);]]></StartupCode>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-</Figure3D>
+				</Figure3D>
 				<Figure3D>
 					<Id>1728728576319</Id>
 					<Name><![CDATA[person4]]></Name>
@@ -12689,7 +12082,7 @@ sh.setVisible(true);]]></StartupCode>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-</Figure3D>
+				</Figure3D>
 				<Figure3D>
 					<Id>1728728576321</Id>
 					<Name><![CDATA[person5]]></Name>
@@ -12739,7 +12132,7 @@ sh.setVisible(true);]]></StartupCode>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-</Figure3D>
+				</Figure3D>
 			</Presentation>
 
 				</Group>
@@ -12783,6 +12176,7 @@ sh.setVisible(true);]]></StartupCode>
 					<Code><![CDATA[10]]></Code>
 					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 				</VelocityCode>
+				<MessageType><![CDATA[Object]]></MessageType>
 				<PhysicalLength Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
@@ -12797,24 +12191,30 @@ sh.setVisible(true);]]></StartupCode>
 				</PhysicalHeight>
 			</AgentProperties>
 			<EnvironmentProperties>
-					<EnableSteps>false</EnableSteps>
-					<StepDurationCode Class="CodeUnitValue">
-						<Code><![CDATA[1.0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-					</StepDurationCode>
-					<SpaceType>CONTINUOUS</SpaceType>
-					<WidthCode><![CDATA[500]]></WidthCode>
-					<HeightCode><![CDATA[500]]></HeightCode>
-					<ZHeightCode><![CDATA[0]]></ZHeightCode>
-					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
-					<RowsCountCode><![CDATA[100]]></RowsCountCode>
-					<NeigborhoodType>MOORE</NeigborhoodType>
-					<LayoutType>USER_DEF</LayoutType>
-					<NetworkType>USER_DEF</NetworkType>
-					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
-					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
-					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
-					<MCode><![CDATA[10]]></MCode>
+				<EnableSteps>false</EnableSteps>
+				<StepDurationCode Class="CodeUnitValue">
+					<Code><![CDATA[1.0]]></Code>
+					<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+				</StepDurationCode>
+				<SpaceType>CONTINUOUS</SpaceType>
+				<WidthCode><![CDATA[500]]></WidthCode>
+				<HeightCode><![CDATA[500]]></HeightCode>
+				<ZHeightCode><![CDATA[0]]></ZHeightCode>
+				<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+				<RowsCountCode><![CDATA[100]]></RowsCountCode>
+				<NeigborhoodType>MOORE</NeigborhoodType>
+				<LayoutType>USER_DEF</LayoutType>
+				<NetworkType>USER_DEF</NetworkType>
+				<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+				<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+				<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+				<MCode><![CDATA[10]]></MCode>
+				<LineStyle>SOLID</LineStyle>
+				<LineWidth>1</LineWidth>
+				<LineColor>-16777216</LineColor>
+				<LineZOrder>UNDER_AGENTS</LineZOrder>
+				<LineArrow>NONE</LineArrow>
+				<LineArrowPosition>END</LineArrowPosition>
 			</EnvironmentProperties>
 			<DatasetsCreationProperties>
 				<AutoCreate>true</AutoCreate>
@@ -12847,7 +12247,6 @@ sh.setVisible(true);]]></StartupCode>
 				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
 			</ScaleRuler>
 			<CurrentLevel>1728545485230</CurrentLevel>
-			<ConnectionsId>1728545485238</ConnectionsId>
 			<Variables>
 				<Variable Class="Parameter">
 					<Id>1728545485233</Id>
@@ -12892,27 +12291,6 @@ sh.setVisible(true);]]></StartupCode>
 					</Properties>                 
 				</Variable>
 			</Variables>
-			<AgentLinks>
-				<AgentLink>
-					<Id>1728545485238</Id>
-					<Name><![CDATA[connections]]></Name>
-					<X>50</X><Y>-50</Y>
-					<Label><X>15</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<HandleReceiveInConnections>false</HandleReceiveInConnections>
-					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
-					<AgentLinkBidirectional>true</AgentLinkBidirectional>
-					<MessageType><![CDATA[Object]]></MessageType>
-					<LineStyle>SOLID</LineStyle>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineZOrder>UNDER_AGENTS</LineZOrder>
-					<LineArrow>NONE</LineArrow>
-					<LineArrowPosition>END</LineArrowPosition>
-				</AgentLink>
-			</AgentLinks>
 
 
 			<Presentation>
@@ -12967,6 +12345,7 @@ sh.setVisible(true);]]></StartupCode>
 					<Code><![CDATA[10]]></Code>
 					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 				</VelocityCode>
+				<MessageType><![CDATA[Object]]></MessageType>
 				<PhysicalLength Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
@@ -12981,24 +12360,30 @@ sh.setVisible(true);]]></StartupCode>
 				</PhysicalHeight>
 			</AgentProperties>
 			<EnvironmentProperties>
-					<EnableSteps>false</EnableSteps>
-					<StepDurationCode Class="CodeUnitValue">
-						<Code><![CDATA[1.0]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-					</StepDurationCode>
-					<SpaceType>CONTINUOUS</SpaceType>
-					<WidthCode><![CDATA[500]]></WidthCode>
-					<HeightCode><![CDATA[500]]></HeightCode>
-					<ZHeightCode><![CDATA[0]]></ZHeightCode>
-					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
-					<RowsCountCode><![CDATA[100]]></RowsCountCode>
-					<NeigborhoodType>MOORE</NeigborhoodType>
-					<LayoutType>USER_DEF</LayoutType>
-					<NetworkType>USER_DEF</NetworkType>
-					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
-					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
-					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
-					<MCode><![CDATA[10]]></MCode>
+				<EnableSteps>false</EnableSteps>
+				<StepDurationCode Class="CodeUnitValue">
+					<Code><![CDATA[1.0]]></Code>
+					<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+				</StepDurationCode>
+				<SpaceType>CONTINUOUS</SpaceType>
+				<WidthCode><![CDATA[500]]></WidthCode>
+				<HeightCode><![CDATA[500]]></HeightCode>
+				<ZHeightCode><![CDATA[0]]></ZHeightCode>
+				<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+				<RowsCountCode><![CDATA[100]]></RowsCountCode>
+				<NeigborhoodType>MOORE</NeigborhoodType>
+				<LayoutType>USER_DEF</LayoutType>
+				<NetworkType>USER_DEF</NetworkType>
+				<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+				<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+				<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+				<MCode><![CDATA[10]]></MCode>
+				<LineStyle>SOLID</LineStyle>
+				<LineWidth>1</LineWidth>
+				<LineColor>-16777216</LineColor>
+				<LineZOrder>UNDER_AGENTS</LineZOrder>
+				<LineArrow>NONE</LineArrow>
+				<LineArrowPosition>END</LineArrowPosition>
 			</EnvironmentProperties>
 			<DatasetsCreationProperties>
 				<AutoCreate>true</AutoCreate>
@@ -13031,28 +12416,6 @@ sh.setVisible(true);]]></StartupCode>
 				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
 			</ScaleRuler>
 			<CurrentLevel>1728860196098</CurrentLevel>
-			<ConnectionsId>1728860196092</ConnectionsId>
-			<AgentLinks>
-				<AgentLink>
-					<Id>1728860196092</Id>
-					<Name><![CDATA[connections]]></Name>
-					<X>50</X><Y>-50</Y>
-					<Label><X>15</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<HandleReceiveInConnections>false</HandleReceiveInConnections>
-					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
-					<AgentLinkBidirectional>true</AgentLinkBidirectional>
-					<MessageType><![CDATA[Object]]></MessageType>
-					<LineStyle>SOLID</LineStyle>
-					<LineWidth>1</LineWidth>
-					<LineColor>-16777216</LineColor>
-					<LineZOrder>UNDER_AGENTS</LineZOrder>
-					<LineArrow>NONE</LineArrow>
-					<LineArrowPosition>END</LineArrowPosition>
-				</AgentLink>
-			</AgentLinks>
 
 
 			<Presentation>
@@ -13088,9 +12451,9 @@ sh.setVisible(true);]]></StartupCode>
 	</Frame>
 	<Database>
 		<Id>1728474439947</Id>
-		<Logging>false</Logging>
+		<Logging>true</Logging>
 		<AutoExport>false</AutoExport>
-		<ShutdownCompact>false</ShutdownCompact>
+		<ShutdownCompact>true</ShutdownCompact>
 		<ImportSettings>
 		</ImportSettings>
 		<ExportSettings>
@@ -13508,7 +12871,14 @@ public class VisitorGroup {
 	<Uuid>0a27038a-0f3a-48bb-b235-4a44066a1402</Uuid>
 	<Uuid>0a9ec2c3-5e18-4c0a-a183-fd86d9d9a08b</Uuid>
 	<Uuid>2216cdd0-177c-5678-9e88-dd8b95313334</Uuid>
+	<Uuid>92afa9c7-cb47-45df-8559-1b947cbeacee</Uuid>
+	<Uuid>896f4ff2-c039-43e1-8c65-183592ba63e2</Uuid>
+	<Uuid>eada5e9c-56b7-4492-b3b1-03f1eb36a209</Uuid>
 	<Uuid>2216cdd0-177c-5678-9e88-dd8b95313335</Uuid>
 	<Uuid>5b8ebeed-6b58-4c3a-8d5f-0958b1a90ce6</Uuid>
+	<Uuid>c39ae7a6-edcf-4673-923a-96829a5df80c</Uuid>
+	<Uuid>af233c46-2e37-4dd0-a79f-cc6184140b1c</Uuid>
+	<Uuid>53a0a65d-9a11-4cd9-8e3a-c6852af4d6e3</Uuid>
+	<Uuid>01593659-ae66-4c89-b2b6-9a95d1c1f509</Uuid>
 </ConvertersApplied>
 </AnyLogicWorkspace>
