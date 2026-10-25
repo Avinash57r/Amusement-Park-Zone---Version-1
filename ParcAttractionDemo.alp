@@ -80,19 +80,19 @@ import com.anylogic.engine.markup.*;]]></Import>
 			<StartupCode><![CDATA[attractions.clear();
 
 // Exit 1: Roller Coaster
-attractions.add(new Attraction("Roller Coaster", AttractionGenre.ROLLER_COASTER, rollerCoasterEnergyCost, rollerCoasterBaseAttractiveness));
+attractions.add(new Attraction("Roller Coaster", AttractionGenre.ROLLER_COASTER, rollerCoasterEnergyCost, rollerCoasterBaseAttractiveness, rollerCoasterHungerCost));
 
 // Exit 2: Flat Ride
-attractions.add(new Attraction("Flat Ride", AttractionGenre.FLAT_RIDE, flatRideEnergyCost, flatRideBaseAttractiveness));
+attractions.add(new Attraction("Flat Ride", AttractionGenre.FLAT_RIDE, flatRideEnergyCost, flatRideBaseAttractiveness, flatRideHungerCost));
 
 // Exit 3: Restaurant
-attractions.add(new Attraction("Restaurant", AttractionGenre.RESTAURANT, resturantEnergyCost, resturantBaseAttractiveness));
+attractions.add(new Attraction("Restaurant", AttractionGenre.RESTAURANT, resturantEnergyCost, resturantBaseAttractiveness,resturantHungerCost_ParamterRequirmentFiller));
 
 // Exit 4: Shop
-attractions.add(new Attraction("Shop", AttractionGenre.SHOP, shopEnergyCost, shopBaseAttractiveness));
+attractions.add(new Attraction("Shop", AttractionGenre.SHOP, shopEnergyCost, shopBaseAttractiveness, shopHungerCost));
 
 // Exit 5: WC
-attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAttractiveness));]]></StartupCode>
+attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAttractiveness, wcHungerCost));]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1728474454640</Id>
@@ -351,7 +351,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1728576688249</Id>
 					<Name><![CDATA[rollerCoasterCapacity]]></Name>
-					<X>40</X><Y>1580</Y>
+					<X>800</X><Y>1780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -376,7 +376,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1728576718945</Id>
 					<Name><![CDATA[flatRideCapacity]]></Name>
-					<X>40</X><Y>1610</Y>
+					<X>810</X><Y>1870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -400,7 +400,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1728588512456</Id>
 					<Name><![CDATA[rollerCoasterDuration]]></Name>
-					<X>40</X><Y>1640</Y>
+					<X>800</X><Y>1800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -424,7 +424,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1728588512460</Id>
 					<Name><![CDATA[flatRideDuration]]></Name>
-					<X>40</X><Y>1670</Y>
+					<X>890</X><Y>1890</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -690,7 +690,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1792910233587</Id>
 					<Name><![CDATA[rollerCoasterBaseAttractiveness]]></Name>
-					<X>470</X><Y>1710</Y>
+					<X>510</X><Y>1920</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -714,7 +714,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1792910243855</Id>
 					<Name><![CDATA[flatRideBaseAttractiveness]]></Name>
-					<X>470</X><Y>1760</Y>
+					<X>510</X><Y>1970</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -738,7 +738,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1792910246909</Id>
 					<Name><![CDATA[shopBaseAttractiveness]]></Name>
-					<X>720</X><Y>1710</Y>
+					<X>760</X><Y>1920</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -762,7 +762,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1792910249681</Id>
 					<Name><![CDATA[wcBaseAttractiveness]]></Name>
-					<X>720</X><Y>1750</Y>
+					<X>760</X><Y>1960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -786,7 +786,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1792910251643</Id>
 					<Name><![CDATA[resturantBaseAttractiveness]]></Name>
-					<X>880</X><Y>1710</Y>
+					<X>920</X><Y>1920</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -810,7 +810,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1792910642751</Id>
 					<Name><![CDATA[rollerCoasterEnergyCost]]></Name>
-					<X>460</X><Y>1900</Y>
+					<X>530</X><Y>2040</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -834,7 +834,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="Parameter">
 					<Id>1792910645350</Id>
 					<Name><![CDATA[flatRideEnergyCost]]></Name>
-					<X>460</X><Y>1960</Y>
+					<X>530</X><Y>2100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -859,7 +859,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<Id>1792910651727</Id>
 					<Name><![CDATA[shopEnergyCost]]></Name>
 					<Description><![CDATA[Meant to add energy so its negative]]></Description>
-					<X>640</X><Y>1900</Y>
+					<X>710</X><Y>2040</Y>
 					<Label><X>-5</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -884,7 +884,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<Id>1792910653841</Id>
 					<Name><![CDATA[wcEnergyCost]]></Name>
 					<Description><![CDATA[Meant to add energy so its negative]]></Description>
-					<X>600</X><Y>1960</Y>
+					<X>670</X><Y>2100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -909,7 +909,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<Id>1792910655831</Id>
 					<Name><![CDATA[resturantEnergyCost]]></Name>
 					<Description><![CDATA[Meant to add energy so its negative]]></Description>
-					<X>790</X><Y>1900</Y>
+					<X>860</X><Y>2040</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -923,6 +923,178 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910655829</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792911965659</Id>
+					<Name><![CDATA[rollerCoasterHungerCost]]></Name>
+					<X>30</X><Y>1970</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.5]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1792911965657</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792911969537</Id>
+					<Name><![CDATA[flatRideHungerCost]]></Name>
+					<X>220</X><Y>1970</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.5]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1792911969535</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792911975264</Id>
+					<Name><![CDATA[shopHungerCost]]></Name>
+					<X>30</X><Y>2020</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.5]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1792911975262</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792911978175</Id>
+					<Name><![CDATA[wcHungerCost]]></Name>
+					<X>220</X><Y>2020</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1792911978173</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792911981794</Id>
+					<Name><![CDATA[postRestaurantHungerMin]]></Name>
+					<Description><![CDATA[Reset hunger from a hunger of 0 - 1.5 out of 10]]></Description>
+					<X>30</X><Y>2070</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1792911981792</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792912306265</Id>
+					<Name><![CDATA[postRestaurantHungerMax]]></Name>
+					<X>220</X><Y>2070</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1.5]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1792912306263</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1792912377218</Id>
+					<Name><![CDATA[resturantHungerCost_ParamterRequirmentFiller]]></Name>
+					<Description><![CDATA[not used for anything, just need this to fill in function call to make resturant
+
+hunger value for resturant is decided between a uniform distrubution from postResturantHungerMin and postResturantHungerMax]]></Description>
+					<X>40</X><Y>2110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1792912377216</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -2712,7 +2884,7 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
-    ped.visitorData.hunger = uniform(0.0, 1.5); // Reset hunger to full
+    ped.visitorData.hunger = uniform(postRestaurantHungerMin, postRestaurantHungerMax); // Reset hunger to full
     ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - resturantEnergyCost);
 }]]></Code>
 							</Value>
@@ -2936,7 +3108,7 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost);
-    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + 0.5);
+    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + rollerCoasterHungerCost);
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -3324,7 +3496,7 @@ if (ped.visitorData != null) {
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - flatRideEnergyCost);
-    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + 0.5);
+    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + flatRideHungerCost);
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -3639,7 +3811,7 @@ if (ped.visitorData != null) {
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - shopEnergyCost);
-    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + 0.5);
+    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + shopHungerCost);
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -3756,6 +3928,7 @@ if (ped.visitorData != null) {
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - wcEnergyCost);
+    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + wcHungerCost);
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -7251,8 +7424,8 @@ if (ped.visitorData != null) {
 					<ServiceColor>-16744320</ServiceColor>
 					<Id>1728645918914</Id>
 					<Name><![CDATA[wcServices]]></Name>
-					<X>365.215</X><Y>491.738</Y>
-					<Label><X>44.95</X><Y>-119.28</Y></Label>
+					<X>374.03</X><Y>484.051</Y>
+					<Label><X>71.288</X><Y>-120.123</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
@@ -7352,7 +7525,7 @@ if (ped.visitorData != null) {
 				<QueueLine>
 					<Id>1728645918916</Id>
 					<Name><![CDATA[queueLine4]]></Name>
-					<X>273.137</X><Y>410.777</Y>
+					<X>271.089</X><Y>400.905</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7364,27 +7537,27 @@ if (ped.visitorData != null) {
 					<Capacity><![CDATA[0]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>14.457</Y></Point>
-						<Point><X>-25.256</X><Y>5.205</Y></Point>
-						<Point><X>-10.523</X><Y>-1.157</Y></Point>
-						<Point><X>12.628</X><Y>-5.783</Y></Point>
-						<Point><X>-34.727</X><Y>4.048</Y></Point>
-						<Point><X>-16.837</X><Y>1.735</Y></Point>
-						<Point><X>8.419</X><Y>-0.578</Y></Point>
-						<Point><X>-43.145</X><Y>4.626</Y></Point>
-						<Point><X>-25.256</X><Y>-0.578</Y></Point>
-						<Point><X>0</X><Y>-2.891</Y></Point>
-						<Point><X>-51.564</X><Y>1.157</Y></Point>
-						<Point><X>-31.57</X><Y>0</Y></Point>
-						<Point><X>-28.413</X><Y>-3.47</Y></Point>
-						<Point><X>-31.57</X><Y>34.698</Y></Point>
+						<Point><X>0</X><Y>14.847</Y></Point>
+						<Point><X>-28.236</X><Y>5.345</Y></Point>
+						<Point><X>-11.764</X><Y>-1.188</Y></Point>
+						<Point><X>14.118</X><Y>-5.939</Y></Point>
+						<Point><X>-38.824</X><Y>4.157</Y></Point>
+						<Point><X>-18.823</X><Y>1.782</Y></Point>
+						<Point><X>9.412</X><Y>-0.594</Y></Point>
+						<Point><X>-48.235</X><Y>4.751</Y></Point>
+						<Point><X>-28.236</X><Y>-0.594</Y></Point>
+						<Point><X>0</X><Y>-2.969</Y></Point>
+						<Point><X>-57.647</X><Y>1.188</Y></Point>
+						<Point><X>-35.295</X><Y>0</Y></Point>
+						<Point><X>-31.765</X><Y>-3.564</Y></Point>
+						<Point><X>-35.295</X><Y>35.634</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
 				<ServicePoint>
 					<Id>1728645918920</Id>
 					<Name><![CDATA[servicePoint4]]></Name>
-					<X>231.044</X><Y>416.56</Y>
+					<X>224.03</X><Y>406.844</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7398,7 +7571,7 @@ if (ped.visitorData != null) {
 				<ServicePoint>
 					<Id>1792908747012</Id>
 					<Name><![CDATA[servicePoint]]></Name>
-					<X>231.044</X><Y>428.125</Y>
+					<X>224.03</X><Y>418.721</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7410,9 +7583,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747016</Id>
+					<Id>1792913845130</Id>
 					<Name><![CDATA[servicePoint5]]></Name>
-					<X>231.044</X><Y>439.691</Y>
+					<X>224.03</X><Y>430.598</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7424,9 +7597,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747020</Id>
+					<Id>1792913845134</Id>
 					<Name><![CDATA[servicePoint6]]></Name>
-					<X>260</X><Y>420</Y>
+					<X>224.03</X><Y>442.475</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7438,9 +7611,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747024</Id>
+					<Id>1792913845138</Id>
 					<Name><![CDATA[servicePoint7]]></Name>
-					<X>260</X><Y>430</Y>
+					<X>224.03</X><Y>454.352</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7452,9 +7625,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747028</Id>
+					<Id>1792913845142</Id>
 					<Name><![CDATA[servicePoint8]]></Name>
-					<X>260</X><Y>440</Y>
+					<X>224.03</X><Y>466.23</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7466,9 +7639,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747032</Id>
+					<Id>1792913845146</Id>
 					<Name><![CDATA[servicePoint9]]></Name>
-					<X>230</X><Y>450</Y>
+					<X>224.03</X><Y>478.107</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7480,9 +7653,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747036</Id>
+					<Id>1792913845150</Id>
 					<Name><![CDATA[servicePoint10]]></Name>
-					<X>260</X><Y>450</Y>
+					<X>160</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7494,9 +7667,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747040</Id>
+					<Id>1792913845154</Id>
 					<Name><![CDATA[servicePoint11]]></Name>
-					<X>230</X><Y>460</Y>
+					<X>160</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7508,8 +7681,134 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747044</Id>
+					<Id>1792913845158</Id>
 					<Name><![CDATA[servicePoint12]]></Name>
+					<X>160</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845162</Id>
+					<Name><![CDATA[servicePoint13]]></Name>
+					<X>160</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845166</Id>
+					<Name><![CDATA[servicePoint14]]></Name>
+					<X>160</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845170</Id>
+					<Name><![CDATA[servicePoint15]]></Name>
+					<X>160</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845174</Id>
+					<Name><![CDATA[servicePoint16]]></Name>
+					<X>160</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845178</Id>
+					<Name><![CDATA[servicePoint17]]></Name>
+					<X>160</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845182</Id>
+					<Name><![CDATA[servicePoint18]]></Name>
+					<X>160</X><Y>490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845186</Id>
+					<Name><![CDATA[servicePoint19]]></Name>
+					<X>260</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845190</Id>
+					<Name><![CDATA[servicePoint20]]></Name>
+					<X>260</X><Y>470</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845194</Id>
+					<Name><![CDATA[servicePoint21]]></Name>
 					<X>260</X><Y>460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -7522,9 +7821,9 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747048</Id>
-					<Name><![CDATA[servicePoint13]]></Name>
-					<X>230</X><Y>470</Y>
+					<Id>1792913845198</Id>
+					<Name><![CDATA[servicePoint22]]></Name>
+					<X>260</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7536,9 +7835,51 @@ if (ped.visitorData != null) {
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<ServicePoint>
-					<Id>1792908747052</Id>
-					<Name><![CDATA[servicePoint14]]></Name>
-					<X>260</X><Y>470</Y>
+					<Id>1792913845202</Id>
+					<Name><![CDATA[servicePoint23]]></Name>
+					<X>260</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845206</Id>
+					<Name><![CDATA[servicePoint24]]></Name>
+					<X>260</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845210</Id>
+					<Name><![CDATA[servicePoint25]]></Name>
+					<X>260</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
+					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
+					<Rotation>180</Rotation>
+				</ServicePoint>
+				<ServicePoint>
+					<Id>1792913845214</Id>
+					<Name><![CDATA[servicePoint26]]></Name>
+					<X>260</X><Y>410</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11868,6 +12209,180 @@ Ride]]></Text>
 						<Point><X>-150</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
+				<Rectangle>
+					<Id>1792912930411</Id>
+					<Name><![CDATA[rectangle22]]></Name>
+					<X>490</X><Y>1910</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>630</Width>
+					<Height>90</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1792912950911</Id>
+					<Name><![CDATA[text61]]></Name>
+					<X>930</X><Y>1950</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Base Attractiveness]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1792912991080</Id>
+					<Name><![CDATA[rectangle23]]></Name>
+					<X>490</X><Y>2010</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>510</Width>
+					<Height>130</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1792913003826</Id>
+					<Name><![CDATA[text62]]></Name>
+					<X>830</X><Y>2070</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Attraction energy cost]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1792913027325</Id>
+					<Name><![CDATA[rectangle24]]></Name>
+					<X>20</X><Y>1910</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>460</Width>
+					<Height>230</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1792913036854</Id>
+					<Name><![CDATA[text63]]></Name>
+					<X>360</X><Y>2000</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Attraction 
+Hunger Cost]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1792913132970</Id>
+					<Name><![CDATA[rectangle25]]></Name>
+					<X>780</X><Y>1760</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>340</Width>
+					<Height>150</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1792913134797</Id>
+					<Name><![CDATA[text64]]></Name>
+					<X>850</X><Y>1700</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Attraction 
+parameters]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -12953,6 +13468,27 @@ sh.setVisible(true);]]></StartupCode>
 				<Parameter>
 					<ParameterName><![CDATA[resturantEnergyCost]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[rollerCoasterHungerCost]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[flatRideHungerCost]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[shopHungerCost]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[wcHungerCost]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[postRestaurantHungerMin]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[postRestaurantHungerMax]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[resturantHungerCost_ParamterRequirmentFiller]]></ParameterName>
+				</Parameter>
 			</Parameters>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -12982,12 +13518,14 @@ sh.setVisible(true);]]></StartupCode>
     public AttractionGenre genre;
     public double energyCost;
     public double baseAttractiveness; // ex: 1.0 - 10.0 scale
+    public double hungerCost;
 
-    public Attraction(String name, AttractionGenre genre, double energyCost, double baseAttractiveness) {
+    public Attraction(String name, AttractionGenre genre, double energyCost, double baseAttractiveness, double hungerCost) {
         this.name = name;
         this.genre = genre;
         this.energyCost = energyCost;
         this.baseAttractiveness = baseAttractiveness;
+        this.hungerCost = hungerCost;
     }
 }]]></Text>
 		</JavaClass>
