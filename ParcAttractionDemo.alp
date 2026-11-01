@@ -80,19 +80,19 @@ import com.anylogic.engine.markup.*;]]></Import>
 			<StartupCode><![CDATA[attractions.clear();
 
 // Exit 1: Roller Coaster
-attractions.add(new Attraction("Roller Coaster", AttractionGenre.ROLLER_COASTER, rollerCoasterEnergyCost, rollerCoasterBaseAttractiveness, rollerCoasterHungerCost));
+attractions.add(new Attraction("Roller Coaster", AttractionGenre.ROLLER_COASTER, rollerCoasterEnergyCost(), rollerCoasterBaseAttractiveness, rollerCoasterHungerCost));
 
 // Exit 2: Flat Ride
-attractions.add(new Attraction("Flat Ride", AttractionGenre.FLAT_RIDE, flatRideEnergyCost, flatRideBaseAttractiveness, flatRideHungerCost));
+attractions.add(new Attraction("Flat Ride", AttractionGenre.FLAT_RIDE, flatRideEnergyCost(), flatRideBaseAttractiveness, flatRideHungerCost));
 
 // Exit 3: Restaurant
-attractions.add(new Attraction("Restaurant", AttractionGenre.RESTAURANT, resturantEnergyCost, resturantBaseAttractiveness,resturantHungerCost_ParamterRequirmentFiller));
+attractions.add(new Attraction("Restaurant", AttractionGenre.RESTAURANT, resturantEnergyCost(), resturantBaseAttractiveness,resturantHungerCost_ParamterRequirmentFiller));
 
 // Exit 4: Shop
-attractions.add(new Attraction("Shop", AttractionGenre.SHOP, shopEnergyCost, shopBaseAttractiveness, shopHungerCost));
+attractions.add(new Attraction("Shop", AttractionGenre.SHOP, shopEnergyCost(), shopBaseAttractiveness, shopHungerCost));
 
 // Exit 5: WC
-attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAttractiveness, wcHungerCost));]]></StartupCode>
+attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseAttractiveness, wcHungerCost));]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1728474454640</Id>
@@ -860,12 +860,12 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[3.0]]></Code>
+							<Code><![CDATA[uniform(2.0, 4.0)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910642749</Id>
@@ -884,12 +884,12 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1.0]]></Code>
+							<Code><![CDATA[uniform(0.5,1.5)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910645348</Id>
@@ -909,12 +909,12 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[-0.5]]></Code>
+							<Code><![CDATA[uniform(-1.0,-0.25)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910651725</Id>
@@ -934,12 +934,12 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[-4.0]]></Code>
+							<Code><![CDATA[uniform(-4.5,-3.5)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910653839</Id>
@@ -959,12 +959,12 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[-2.0]]></Code>
+							<Code><![CDATA[uniform(-2.5,-1.5)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910655829</Id>
@@ -2929,7 +2929,7 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.hunger = uniform(postRestaurantHungerMin, postRestaurantHungerMax); // Reset hunger to full
-    ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - resturantEnergyCost);
+    ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - resturantEnergyCost());
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -3151,7 +3151,7 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost);
+    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + rollerCoasterHungerCost);
 }]]></Code>
 							</Value>
@@ -3539,7 +3539,7 @@ if (ped.visitorData != null) {
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - flatRideEnergyCost);
+    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - flatRideEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + flatRideHungerCost);
 }]]></Code>
 							</Value>
@@ -3854,7 +3854,7 @@ if (ped.visitorData != null) {
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - shopEnergyCost);
+    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - shopEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + shopHungerCost);
 }]]></Code>
 							</Value>
@@ -3971,7 +3971,7 @@ if (ped.visitorData != null) {
 							<Name><![CDATA[onEndService]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - wcEnergyCost);
+    ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - wcEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + wcHungerCost);
 }]]></Code>
 							</Value>
