@@ -213,7 +213,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 				<Variable Class="PlainVariable">
 					<Id>1791156140261</Id>
 					<Name><![CDATA[attractions]]></Name>
-					<X>60</X><Y>1740</Y>
+					<X>50</X><Y>1740</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -222,6 +222,51 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost, wcBaseAtt
 						<Type><![CDATA[java.util.List<Attraction>]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[new ArrayList<Attraction>()]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793571574631</Id>
+					<Name><![CDATA[betaQueue]]></Name>
+					<X>1230</X><Y>1950</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0.4]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793571710662</Id>
+					<Name><![CDATA[epsilonMin]]></Name>
+					<X>1230</X><Y>1990</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[-0.3]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793571742100</Id>
+					<Name><![CDATA[epsilonMax]]></Name>
+					<X>1230</X><Y>2020</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0.3]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -1858,7 +1903,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1791158042116</Id>
 					<Name><![CDATA[getQueueForExit]]></Name>
-					<X>60</X><Y>1770</Y>
+					<X>1390</X><Y>1910</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1881,7 +1926,7 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1791160125784</Id>
 					<Name><![CDATA[chooseNextAttraction]]></Name>
-					<X>200</X><Y>1770</Y>
+					<X>1230</X><Y>1910</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1898,7 +1943,6 @@ if (vg == null) {
 
 double bestUtility = -Double.MAX_VALUE;
 int bestExit = 1;
-double betaQueue = 0.4;
 
 for (int i = 0; i < attractions.size(); i++) {
     Attraction a = attractions.get(i);
@@ -1907,7 +1951,7 @@ for (int i = 0; i < attractions.size(); i++) {
     double v_gi = vg.calculateGroupInterest(a);
     double currentQueue = getQueueForExit(exitNum);
     double queuePenalty = betaQueue * currentQueue;
-    double epsilon = uniform(-0.3, 0.3);
+    double epsilon = uniform(epsilonMin, epsilonMax);
 
     double u_gi = v_gi - queuePenalty + epsilon;
 
@@ -12364,7 +12408,73 @@ Hunger Cost]]></Text>
 				<Text>
 					<Id>1792913134797</Id>
 					<Name><![CDATA[text64]]></Name>
-					<X>850</X><Y>1700</Y>
+					<X>990</X><Y>1800</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Attraction 
+parameters]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793571805767</Id>
+					<Name><![CDATA[text65]]></Name>
+					<X>1420</X><Y>1870</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[ChooseNextAttrraction]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1793571860654</Id>
+					<Name><![CDATA[rectangle26]]></Name>
+					<X>1190</X><Y>1820</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>390</Width>
+					<Height>250</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1793571938992</Id>
+					<Name><![CDATA[text68]]></Name>
+					<X>1260</X><Y>1850</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
