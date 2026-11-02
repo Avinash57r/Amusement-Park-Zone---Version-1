@@ -421,7 +421,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 				<Variable Class="Parameter">
 					<Id>1728576718945</Id>
 					<Name><![CDATA[flatRideCapacity]]></Name>
-					<X>810</X><Y>1870</Y>
+					<X>800</X><Y>1850</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -450,12 +450,12 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[90]]></Code>
+							<Code><![CDATA[pert(0.5,1.0,2.5)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1728588512454</Id>
@@ -469,17 +469,17 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 				<Variable Class="Parameter">
 					<Id>1728588512460</Id>
 					<Name><![CDATA[flatRideDuration]]></Name>
-					<X>890</X><Y>1890</Y>
+					<X>800</X><Y>1870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
 						<Type><![CDATA[double]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[60]]></Code>
+							<Code><![CDATA[uniform(4,8)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1728588512458</Id>
@@ -696,7 +696,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[60]]></Code>
+							<Code><![CDATA[40]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1728689679147</Id>
@@ -769,7 +769,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[8.0]]></Code>
+							<Code><![CDATA[7.0]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910243853</Id>
@@ -817,7 +817,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[2.0]]></Code>
+							<Code><![CDATA[1.0]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910249679</Id>
@@ -841,7 +841,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[3.0]]></Code>
+							<Code><![CDATA[2.0]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910251641</Id>
@@ -1140,6 +1140,78 @@ hunger value for resturant is decided between a uniform distrubution from postRe
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792912377216</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793580205091</Id>
+					<Name><![CDATA[wcDelayTime]]></Name>
+					<X>1000</X><Y>1860</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[randomTrue(0.15) ? triangular(10, 15, 20) : triangular(1, 2, 3)]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793580205089</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793580912263</Id>
+					<Name><![CDATA[flatRideAttendingTime]]></Name>
+					<X>800</X><Y>1890</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[uniform(0.1,0.2) //meant to be in minutes]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793580912261</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793580969040</Id>
+					<Name><![CDATA[rollerCoasterAttendingTime]]></Name>
+					<X>800</X><Y>1820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[uniform(0.1,0.2) //meant to be in minutes]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793580969038</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -1941,6 +2013,14 @@ if (vg == null) {
     return uniform_discr(1, 5);
 }
 
+//checks if a decision has been made already to avoid running epsilon
+//multiple times. Look below for explanation
+if(vg.chosenNextExit != 0)
+{
+	
+	return vg.chosenNextExit;
+}
+
 double bestUtility = -Double.MAX_VALUE;
 int bestExit = 1;
 
@@ -1960,7 +2040,10 @@ for (int i = 0; i < attractions.size(); i++) {
         bestExit = exitNum;
     }
 }
-
+vg.chosenNextExit = bestExit; // make sure that group decides once
+// needed since this runs on all memebers some members may
+//end up with a different bestExit as a result of epsilon running
+//multiple times, causing a rift between social force model
 return bestExit;]]></Body>
 				</Function>
 			</Functions>
@@ -2170,7 +2253,7 @@ for (int i = 0; i < group.size(); i++) {
             uniform(1.0, 10.0),
             uniform(1.0, 10.0),
             uniform(1.0, 4.0),
-            uniform(7.0, 10.0)
+            uniform(20.0, 30.0)
         );
     }
     
@@ -2930,7 +3013,9 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.hunger = uniform(postRestaurantHungerMin, postRestaurantHungerMax); // Reset hunger to full
     ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - resturantEnergyCost());
-}]]></Code>
+}
+
+ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3028,7 +3113,7 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[2]]></Code>
+								<Code><![CDATA[rollerCoasterAttendingTime()]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -3153,7 +3238,9 @@ agent.nRound >= 3 && (agent.visitorData.personalEnergy <= 1.0 || agent.visitorDa
 if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + rollerCoasterHungerCost);
-}]]></Code>
+}
+
+ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3280,8 +3367,8 @@ if (ped.visitorData != null) {
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[rollerCoasterDuration]]></Code>
-								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+								<Code><![CDATA[rollerCoasterDuration()]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3318,7 +3405,7 @@ if (ped.visitorData != null) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[rollerCoasterUtilization=rollerCoasterUtilization+((rollerCoasterDuration/rollerCoasterCapacity)/60)]]></Code>
+								<Code><![CDATA[rollerCoasterUtilization=rollerCoasterUtilization+((rollerCoasterDuration()/rollerCoasterCapacity)/60)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3416,7 +3503,7 @@ if (ped.visitorData != null) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[attenteFlatRide]]></Code>
+								<Code><![CDATA[flatRideAttendingTime()]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -3541,7 +3628,9 @@ if (ped.visitorData != null) {
 if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - flatRideEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + flatRideHungerCost);
-}]]></Code>
+}
+
+ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3667,8 +3756,8 @@ if (ped.visitorData != null) {
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[flatRideDuration]]></Code>
-								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+								<Code><![CDATA[flatRideDuration()]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3705,7 +3794,7 @@ if (ped.visitorData != null) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[flatRideUtilization=flatRideUtilization+((flatRideDuration/flatRideCapacity)/60)]]></Code>
+								<Code><![CDATA[flatRideUtilization=flatRideUtilization+((flatRideDuration()/flatRideCapacity)/60)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3856,7 +3945,9 @@ if (ped.visitorData != null) {
 if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - shopEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + shopHungerCost);
-}]]></Code>
+}
+
+ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3938,14 +4029,14 @@ if (ped.visitorData != null) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform(0.5, 2)]]></Code>
+								<Code><![CDATA[wcDelayTime()]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[recoveryDelay]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[0.0]]></Code>
+								<Code><![CDATA[0.16 //10 sec]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -3973,7 +4064,9 @@ if (ped.visitorData != null) {
 								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - wcEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + wcHungerCost);
-}]]></Code>
+}
+
+ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -11464,7 +11557,7 @@ Coaster]]></Text>
 						<MinValue><![CDATA[1]]></MinValue>
 						<MaxValue><![CDATA[200]]></MaxValue>
 						<Step><![CDATA[1]]></Step>
-						<LinkTo>true</LinkTo>
+						<LinkTo>false</LinkTo>
 						<Link>flatRideDuration</Link>
 					</ExtendedProperties>
 				</Control>
@@ -11510,7 +11603,7 @@ Ride]]></Text>
 						<MinValue><![CDATA[1]]></MinValue>
 						<MaxValue><![CDATA[200]]></MaxValue>
 						<Step><![CDATA[1]]></Step>
-						<LinkTo>true</LinkTo>
+						<LinkTo>false</LinkTo>
 						<Link>rollerCoasterDuration</Link>
 					</ExtendedProperties>
 				</Control>
@@ -13599,6 +13692,15 @@ sh.setVisible(true);]]></StartupCode>
 				<Parameter>
 					<ParameterName><![CDATA[resturantHungerCost_ParamterRequirmentFiller]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[wcDelayTime]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[flatRideAttendingTime]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[rollerCoasterAttendingTime]]></ParameterName>
+				</Parameter>
 			</Parameters>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -13609,11 +13711,11 @@ sh.setVisible(true);]]></StartupCode>
 				<RealTimeScale>1.0</RealTimeScale>
 			</PresentationProperties>
 			<ModelTimeProperties>
-				<StopOption><![CDATA[Never]]></StopOption>
-				<InitialDate><![CDATA[1728432000000]]></InitialDate>
+				<StopOption><![CDATA[Stop at specified time]]></StopOption>
+				<InitialDate><![CDATA[1728468000000]]></InitialDate>
 				<InitialTime><![CDATA[0.0]]></InitialTime>
-				<FinalDate><![CDATA[1731110400000]]></FinalDate>
-				<FinalTime><![CDATA[100.0]]></FinalTime>
+				<FinalDate><![CDATA[1728500400000]]></FinalDate>
+				<FinalTime><![CDATA[540.0]]></FinalTime>
 			</ModelTimeProperties>
 			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
@@ -13690,7 +13792,7 @@ sh.setVisible(true);]]></StartupCode>
                 break;
             case WC:
                 // Urgency/need to rest increases as energy drops
-                interest = Math.max(0.0, 10.0 - this.personalEnergy);
+                interest = Math.max(0.0, 30.0 - this.personalEnergy);
                 break;
         }
 
@@ -13712,6 +13814,7 @@ import java.util.List;
 
 public class VisitorGroup {
     public int groupId;
+    public int chosenNextExit = 0;
     public List<Visitor> members = new ArrayList<>();
 
     public VisitorGroup(int groupId) {
