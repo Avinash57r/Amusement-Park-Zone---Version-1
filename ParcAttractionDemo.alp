@@ -342,20 +342,6 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 
 				</Variable>
 				<Variable Class="AuxVariable">
-					<Id>1728730011057</Id>
-					<Name><![CDATA[guestsInPark]]></Name>
-					<X>770</X><Y>2650</Y>
-					<Label><X>10</X><Y>-5</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties External="true" Constant="true" Array="false">
-						<Value><![CDATA[0]]></Value>
-						<Color>-1</Color>
-					</Properties>
-
-				</Variable>
-				<Variable Class="AuxVariable">
 					<Id>1728912417614</Id>
 					<Name><![CDATA[rollerCoasterUtilization]]></Name>
 					<X>560</X><Y>1190</Y>
@@ -1372,6 +1358,30 @@ hunger value for resturant is decided between a uniform distrubution from postRe
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1794644191403</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1794673911229</Id>
+					<Name><![CDATA[guestInPark]]></Name>
+					<X>790</X><Y>2680</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="DYNAMIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[pedWait.out.count() - GuestSink.in.count()]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1794673911227</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -2752,10 +2762,6 @@ for (int i = 0; i < group.size(); i++) {
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[
-guestsInPark=guestsInPark-1;]]></Code>
-							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -12390,70 +12396,6 @@ Ride]]></Text>
 						<RelativeWidth>0.5</RelativeWidth>
 					</Bars>
     			</BarChart>
-    			<TimeStackChart>
-					<Id>1728730152360</Id>
-					<Name><![CDATA[chart2]]></Name>
-					<X>20</X><Y>2550</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<AutoUpdate>true</AutoUpdate>
-					<RecurrenceProperties>
-						<Id>1791137069996</Id>
-						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1728806400000</OccurrenceDate>
-						<OccurrenceTime Class="CodeUnitValue">
-							<Code><![CDATA[0]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</OccurrenceTime>
-						<RecurrenceCode Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</RecurrenceCode>
-					</RecurrenceProperties>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>760</Width>
-					<Height>210</Height>
-					<BackgroundColor/>
-					<BorderColor/>
-					<ChartArea>
-						<XOffset>50</XOffset>
-						<YOffset>30</YOffset>
-						<Width>680</Width>
-						<Height>150</Height>
-						<BackgroundColor>-1</BackgroundColor>
-						<BorderColor>-16777216</BorderColor>
-						<GridColor>-12566464</GridColor>
-					</ChartArea>
-					<Legend>
-						<Place>NORTH</Place>
-						<TextColor>-16777216</TextColor>
-						<Size>20</Size>
-					</Legend>
-					<Labels>
-						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
-						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
-						<TextColor>-1</TextColor>
-					</Labels>
-					<ShowLegend>false</ShowLegend>
-					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
-					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
-					<TimeWindowExpression><![CDATA[99]]></TimeWindowExpression>
-					<DatasetExpression>
-					<Id>1728730153246</Id>
-					<Expression><![CDATA[my_dataset]]></Expression>
-					<Color>-7351810</Color>
-					<Expression2><![CDATA[guestsInPark]]></Expression2>
-					<Expression2Flag>true</Expression2Flag>
-							<Title><![CDATA[Guests In the park]]></Title>
-					</DatasetExpression>
-					<SamplesToKeep>100</SamplesToKeep>
-					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
-					<VerScaleType>AUTO</VerScaleType>
-					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
-    			</TimeStackChart>
 				<Text>
 					<Id>1728743337515</Id>
 					<Name><![CDATA[text56]]></Name>
@@ -12952,7 +12894,7 @@ Ride]]></Text>
 				<Rectangle>
 					<Id>1792913027325</Id>
 					<Name><![CDATA[rectangle24]]></Name>
-					<X>20</X><Y>1910</Y>
+					<X>20</X><Y>1900</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13276,7 +13218,113 @@ parameters]]></Text>
 						<Point><X>30</X><Y>-80</Y></Point>
 					</Points>
 				</PolygonNode>
+    			<TimeStackChart>
+					<Id>1728730152360</Id>
+					<Name><![CDATA[chart2]]></Name>
+					<X>20</X><Y>2550</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1791137069996</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1728806400000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>760</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>680</Width>
+						<Height>150</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>NORTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>20</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-1</TextColor>
+					</Labels>
+					<ShowLegend>false</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<TimeWindowExpression><![CDATA[99]]></TimeWindowExpression>
+					<DatasetExpression>
+					<Id>1728730153246</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-7351810</Color>
+					<Expression2><![CDATA[guestInPark()]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+							<Title><![CDATA[Guests In the park]]></Title>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimeStackChart>
 			</Presentation>
+
+				</Level>
+				<Level>
+					<Id>1794675155349</Id>
+					<Name><![CDATA[level1]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+
+				</Level>
+				<Level>
+					<Id>1794675210607</Id>
+					<Name><![CDATA[level2]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+
+				</Level>
+				<Level>
+					<Id>1794675213865</Id>
+					<Name><![CDATA[level3]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
 
 				</Level>
 			</Presentation>
@@ -14408,6 +14456,9 @@ sh.setVisible(true);]]></StartupCode>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[wcBowelChange]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[guestInPark]]></ParameterName>
 				</Parameter>
 			</Parameters>
 			<PresentationProperties>
