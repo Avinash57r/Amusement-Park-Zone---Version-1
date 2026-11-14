@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.10.202609231424" AlpVersion="8.9.10">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.10.202609221911" AlpVersion="8.9.10">
 <Model>
 	<Id>1728474454631</Id>
 	<Name><![CDATA[ParcAttractionDemo]]></Name>
@@ -769,7 +769,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[7.0]]></Code>
+							<Code><![CDATA[7]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910243853</Id>
@@ -817,7 +817,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1.0]]></Code>
+							<Code><![CDATA[0.5]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910249679</Id>
@@ -841,7 +841,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[2.0]]></Code>
+							<Code><![CDATA[0.5]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910251641</Id>
@@ -13779,16 +13779,16 @@ sh.setVisible(true);]]></StartupCode>
 
         switch (attraction.genre) {
             case ROLLER_COASTER:
-                interest = this.rollerCoasterInterest;
+                interest = ((this.rollerCoasterInterest + attraction.baseAttractiveness) / 2);
                 break;
             case FLAT_RIDE:
-                interest = this.flatRideInterest;
+                interest = ((this.flatRideInterest + attraction.baseAttractiveness) / 2);
                 break;
             case SHOP:
-                interest = this.shopInterest;
+                interest = ((this.shopInterest + attraction.baseAttractiveness) / 2);
                 break;
             case RESTAURANT:
-                interest = this.hunger;
+                interest = ((this.hunger + attraction.baseAttractiveness) / 2);
                 break;
             case WC:
                 // Urgency/need to rest increases as energy drops
@@ -13800,6 +13800,9 @@ sh.setVisible(true);]]></StartupCode>
         if (this.personalEnergy < attraction.energyCost) {
             interest *= 0.2;
         }
+        
+        // For resturant and wc, the values for them does not matter since visitor group has a check 
+        // that turns them to interest of 1 unless critical need is met
 
         return interest;
     }
