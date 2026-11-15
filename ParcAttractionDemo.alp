@@ -828,7 +828,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[2.0]]></Code>
+							<Code><![CDATA[1.0]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910246907</Id>
@@ -2660,8 +2660,10 @@ return bestExit;]]></Body>
     uniform(1.0, 10.0),
     uniform(1.0, 4.0),
     uniform(20.0, 30.0),
-    exponential(3)
+    exponential(3),
+    false
 );
+ped.visitorData.entryTime = time(MINUTE);
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -2685,8 +2687,10 @@ for (int i = 0; i < group.size(); i++) {
             uniform(1.0, 10.0),
             uniform(1.0, 4.0),
             uniform(20.0, 30.0),
-            exponential(3)
+            exponential(3),
+            false
         );
+        g.visitorData.entryTime = time(MINUTE);
     }
     
     vg.members.add(g.visitorData);
@@ -4507,7 +4511,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + wcHungerCost);
     ped.visitorData.bowels = Math.max(0, ped.visitorData.bowels + wcBowelChange);
 }
-
+ped.visitorData.usedWC = true;
 ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							</Value>
 						</Parameter>
@@ -4722,7 +4726,8 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.visitorGroup.checkRestroomNeed() == 0]]></Code>
+								<Code><![CDATA[//time(MINUTE) - agent.visitorData.entryTime >= 1 && 
+(!agent.visitorData.usedWC) && ((240 >= time(MINUTE)) && (time(MINUTE) >= 90))]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -15169,8 +15174,10 @@ dsMaxFlatQueue.add(root.betaQueue, root.maxFlatRideQueue);]]></AfterSimulationRu
     public double hunger;                // 0 to 10
     public double personalEnergy;        // 0 to 10 (depletes, WC/Rest restores)
     public double bowels;
+    public boolean usedWC;
+    public double entryTime;
 
-    public Visitor(int id, double coaster, double flatRide, double shop, double hunger, double energy,double bowels) {
+    public Visitor(int id, double coaster, double flatRide, double shop, double hunger, double energy,double bowels,boolean usedWC) {
         this.id = id;
         this.rollerCoasterInterest = coaster;
         this.flatRideInterest = flatRide;
@@ -15178,6 +15185,7 @@ dsMaxFlatQueue.add(root.betaQueue, root.maxFlatRideQueue);]]></AfterSimulationRu
         this.hunger = hunger;
         this.personalEnergy = energy;
         this.bowels = bowels;
+        this.usedWC = usedWC;
     }
 
     public double calculateIndividualInterest(Attraction attraction) {
