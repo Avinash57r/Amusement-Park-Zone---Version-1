@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.10.202609231424" AlpVersion="8.9.10">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.10.202609221911" AlpVersion="8.9.10">
 <Model>
 	<Id>1728474454631</Id>
 	<Name><![CDATA[ParcAttractionDemo]]></Name>
@@ -90,6 +90,9 @@ attractions.add(new Attraction("Restaurant", AttractionGenre.RESTAURANT, restura
 
 // Exit 4: Shop
 attractions.add(new Attraction("Shop", AttractionGenre.SHOP, shopEnergyCost(), shopBaseAttractiveness, shopHungerCost));
+
+// Exit 5: WC
+attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseAttractiveness, wcHungerCost));
 
 visitorExportFile.println("VisitorID,PersonalEnergy,Hunger,VisitDuration");]]></StartupCode>
 			<DestroyCode><![CDATA[visitorExportFile.close();
@@ -487,7 +490,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[pert(0.5,1.0,2.5)]]></Code>
+							<Code><![CDATA[pert(0.5,2.5,1.0)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1728588512454</Id>
@@ -825,7 +828,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[4.0]]></Code>
+							<Code><![CDATA[2.0]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910246907</Id>
@@ -897,7 +900,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[uniform(2.0, 4.0)]]></Code>
+							<Code><![CDATA[uniform(6.0, 12.0)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910642749</Id>
@@ -921,7 +924,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[uniform(0.5,1.5)]]></Code>
+							<Code><![CDATA[uniform(5.0,10.0)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910645348</Id>
@@ -946,7 +949,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[uniform(-1.0,-0.25)]]></Code>
+							<Code><![CDATA[uniform(-3.0,-0.75)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910651725</Id>
@@ -971,7 +974,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[uniform(-2,-1)]]></Code>
+							<Code><![CDATA[uniform(-4,-2)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910653839</Id>
@@ -996,7 +999,7 @@ traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></De
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[uniform(-2.5,-1.5)]]></Code>
+							<Code><![CDATA[uniform(-7.5,-4.5)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792910655829</Id>
@@ -1289,7 +1292,7 @@ hunger value for resturant is decided between a uniform distrubution from postRe
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[uniform(-15,-20)]]></Code>
+							<Code><![CDATA[uniform(-20,-15)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1794643562598</Id>
@@ -3445,8 +3448,8 @@ agent.visitorGroup.shouldLeavePark(agent.nRound)]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.hunger = uniform(postRestaurantHungerMin, postRestaurantHungerMax); // Reset hunger to full
-    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - resturantEnergyCost());
-    ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + resturantBowelChange);
+    ped.visitorData.personalEnergy = Math.min(30, ped.visitorData.personalEnergy - resturantEnergyCost());
+    ped.visitorData.bowels = Math.min(10.0, ped.visitorData.bowels + resturantBowelChange);
     
 }
 
@@ -3671,9 +3674,9 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost());
+    ped.visitorData.personalEnergy = Math.max(0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + rollerCoasterHungerCost);
-    ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
+    ped.visitorData.bowels = Math.min(10.0, ped.visitorData.bowels + nonResturantBowelChange);
 }
 
 ped.visitorGroup.chosenNextExit = 0;]]></Code>
@@ -4062,7 +4065,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - flatRideEnergyCost());
+    ped.visitorData.personalEnergy = Math.max(0, ped.visitorData.personalEnergy - flatRideEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + flatRideHungerCost);
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
 }
@@ -4380,8 +4383,8 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - shopEnergyCost());
-    ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + shopHungerCost);
+    ped.visitorData.personalEnergy = Math.min(30.0, ped.visitorData.personalEnergy - shopEnergyCost());
+    ped.visitorData.hunger = Math.max(10.0, ped.visitorData.hunger + shopHungerCost);
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
 }
 
@@ -4500,7 +4503,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Name><![CDATA[onEndService]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - wcEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(30.0, ped.visitorData.personalEnergy - wcEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + wcHungerCost);
     ped.visitorData.bowels = Math.max(0, ped.visitorData.bowels + wcBowelChange);
 }
@@ -4854,7 +4857,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(15, ped.visitorData.personalEnergy - restAreaEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(30, ped.visitorData.personalEnergy - restAreaEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + restAreaHungerCost);
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
 }
@@ -15217,7 +15220,7 @@ dsMaxFlatQueue.add(root.betaQueue, root.maxFlatRideQueue);]]></AfterSimulationRu
 			<Name><![CDATA[VisitorGroup]]></Name>
 			<Text><![CDATA[import java.util.ArrayList;
 import java.util.List;
-
+//add check if attraction is the attraction that the critical override is for if no return 0;
 public class VisitorGroup {
     public int groupId;
     public int chosenNextExit = 0;
