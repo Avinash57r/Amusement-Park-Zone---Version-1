@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.10.202609221911" AlpVersion="8.9.10">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.10.202609231424" AlpVersion="8.9.10">
 <Model>
 	<Id>1728474454631</Id>
 	<Name><![CDATA[ParcAttractionDemo]]></Name>
@@ -91,8 +91,9 @@ attractions.add(new Attraction("Restaurant", AttractionGenre.RESTAURANT, restura
 // Exit 4: Shop
 attractions.add(new Attraction("Shop", AttractionGenre.SHOP, shopEnergyCost(), shopBaseAttractiveness, shopHungerCost));
 
-// Exit 5: WC
-attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseAttractiveness, wcHungerCost));]]></StartupCode>
+visitorExportFile.println("VisitorID,PersonalEnergy,Hunger,VisitDuration");]]></StartupCode>
+			<DestroyCode><![CDATA[visitorExportFile.close();
+traceln("✓ Export complete: saved to visitor_verification_export.csv");]]></DestroyCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1728474454640</Id>
@@ -282,6 +283,36 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[0.4]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1794772978693</Id>
+					<Name><![CDATA[maxRollerCoasterQueue]]></Name>
+					<X>70</X><Y>1820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1794773002027</Id>
+					<Name><![CDATA[maxFlatRideQueue]]></Name>
+					<X>70</X><Y>1850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -989,7 +1020,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.5]]></Code>
+							<Code><![CDATA[1]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792911965657</Id>
@@ -1013,7 +1044,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.5]]></Code>
+							<Code><![CDATA[1]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792911969535</Id>
@@ -1037,7 +1068,7 @@ attractions.add(new Attraction("WC", AttractionGenre.WC, wcEnergyCost(), wcBaseA
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.5]]></Code>
+							<Code><![CDATA[1]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1792911975262</Id>
@@ -1382,6 +1413,30 @@ hunger value for resturant is decided between a uniform distrubution from postRe
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1794673911227</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1794774020790</Id>
+					<Name><![CDATA[P_betaQueue]]></Name>
+					<X>1210</X><Y>1780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.4]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1794774020788</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -2184,6 +2239,45 @@ hunger value for resturant is decided between a uniform distrubution from postRe
 					</Points>
 				</Connector>
 			</Connectors>
+			<Events>
+				<Event>
+					<Id>1794773047796</Id>
+					<Name><![CDATA[event]]></Name>
+					<X>70</X><Y>1880</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<Id>1794773047794</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[5]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[5]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[if (rollerCoasterService.queueSize() > maxRollerCoasterQueue) {
+    maxRollerCoasterQueue = rollerCoasterService.queueSize();
+}
+if (flatRideService.queueSize() > maxFlatRideQueue) {
+    maxFlatRideQueue = flatRideService.queueSize();
+}]]></Action>
+				</Event>
+			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -2359,6 +2453,26 @@ return bestExit;]]></Body>
 }]]></Body>
 				</Function>
 			</Functions>
+			<Connectivity>
+				<TextFile>
+					<Id>1794768719964</Id>
+					<Name><![CDATA[visitorExportFile]]></Name>
+					<X>60</X><Y>1560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<FileType>FILE</FileType>
+					<Url><![CDATA[]]></Url>
+					<ResourceReference>
+						<PackageName><![CDATA[parcattractiondemo]]></PackageName>
+						<ClassName><![CDATA[visitor_verification_export.csv]]></ClassName>
+					</ResourceReference>
+					<FileMode>WRITE_APPEND</FileMode>
+					<CharsetName>null</CharsetName>
+					<Separators></Separators>
+				</TextFile>
+			</Connectivity>
 
 			<EmbeddedObjects>
 				<EmbeddedObject>
@@ -2544,7 +2658,8 @@ return bestExit;]]></Body>
     uniform(1.0, 4.0),
     uniform(20.0, 30.0),
     exponential(3)
-);]]></Code>
+);
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2762,6 +2877,17 @@ for (int i = 0; i < group.size(); i++) {
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[// For CSV Export in pedSink On enter:
+if (ped.visitorData != null) {
+    visitorExportFile.println(
+        ped.getId() + "," +
+        ped.visitorData.personalEnergy + "," +
+        ped.visitorData.hunger + "," +
+        ped.visitorData.bowels
+    );
+}]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -3319,7 +3445,7 @@ agent.visitorGroup.shouldLeavePark(agent.nRound)]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
     ped.visitorData.hunger = uniform(postRestaurantHungerMin, postRestaurantHungerMax); // Reset hunger to full
-    ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - resturantEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - resturantEnergyCost());
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + resturantBowelChange);
     
 }
@@ -3545,7 +3671,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - rollerCoasterEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + rollerCoasterHungerCost);
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
 }
@@ -3936,7 +4062,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - flatRideEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - flatRideEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + flatRideHungerCost);
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
 }
@@ -4254,7 +4380,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.nRound++; // Track that they finished a round
 if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.max(0.0, ped.visitorData.personalEnergy - shopEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - shopEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + shopHungerCost);
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
 }
@@ -4374,7 +4500,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Name><![CDATA[onEndService]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - wcEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(15.0, ped.visitorData.personalEnergy - wcEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + wcHungerCost);
     ped.visitorData.bowels = Math.max(0, ped.visitorData.bowels + wcBowelChange);
 }
@@ -4728,7 +4854,7 @@ ped.visitorGroup.chosenNextExit = 0;]]></Code>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (ped.visitorData != null) {
-    ped.visitorData.personalEnergy = Math.min(10.0, ped.visitorData.personalEnergy - restAreaEnergyCost());
+    ped.visitorData.personalEnergy = Math.min(15, ped.visitorData.personalEnergy - restAreaEnergyCost());
     ped.visitorData.hunger = Math.min(10.0, ped.visitorData.hunger + restAreaHungerCost);
     ped.visitorData.bowels = Math.min(10, ped.visitorData.bowels + nonResturantBowelChange);
 }
@@ -13282,6 +13408,31 @@ parameters]]></Text>
 					<VerScaleType>AUTO</VerScaleType>
 					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
     			</TimeStackChart>
+				<DensityMap>
+					<Id>1794772113779</Id>
+					<Name><![CDATA[densityMap]]></Name>
+					<X>30</X><Y>380</Y>
+					<Label><X>-15</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Width>10</Width>
+					<Height>200</Height>
+					<Transparency>0.55</Transparency>
+					<CriticalDensity>1.5</CriticalDensity>
+					<BasedOn>SPACE</BasedOn>
+					<Type>PEDESTRIAN</Type>
+					<TimePeriod>COMPLETE</TimePeriod>
+					<WindowTime Class="UnitValue">
+						<Value Class="Double">5</Value>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</WindowTime>
+					<DisplayedValue>MAX</DisplayedValue>
+					<EnableAttenuation>true</EnableAttenuation>
+					<ColorScheme>LOGARITHMIC</ColorScheme>
+				</DensityMap>
 			</Presentation>
 
 				</Level>
@@ -14460,6 +14611,9 @@ sh.setVisible(true);]]></StartupCode>
 				<Parameter>
 					<ParameterName><![CDATA[guestInPark]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[P_betaQueue]]></ParameterName>
+				</Parameter>
 			</Parameters>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -14477,7 +14631,495 @@ sh.setVisible(true);]]></StartupCode>
 				<FinalTime><![CDATA[540.0]]></FinalTime>
 			</ModelTimeProperties>
 			<BypassInitialScreen>true</BypassInitialScreen>
-		</SimulationExperiment>	
+		</SimulationExperiment>
+		<!--   =========  Parameter Variation Experiment   ========  -->
+		<ParamVariationExperiment ActiveObjectClassId="1728474454634">
+			<Id>1794773357563</Id>
+			<Name><![CDATA[QueueSensitivityExperiment]]></Name>
+			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
+			<MaximumMemory>512</MaximumMemory>
+			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
+			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+			<AfterSimulationRunCode><![CDATA[// Record (x = betaQueue, y = peak queue length)
+dsMaxRCQueue.add(root.betaQueue, root.maxRollerCoasterQueue);
+dsMaxFlatQueue.add(root.betaQueue, root.maxFlatRideQueue);]]></AfterSimulationRunCode>
+			<SeedValue>5</SeedValue>
+			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
+			<VmArgs><![CDATA[]]></VmArgs>
+			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+			<AnalysisData>
+    			<DataSet>
+					<Id>1794774523618</Id>
+					<Name><![CDATA[dsMaxRCQueue]]></Name>
+					<X>60</X><Y>540</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1794774523616</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<FreezeXAxis>true</FreezeXAxis>
+					<SamplesToKeep>100</SamplesToKeep>
+				</DataSet>
+    			<DataSet>
+					<Id>1794774547636</Id>
+					<Name><![CDATA[dsMaxFlatQueue]]></Name>
+					<X>60</X><Y>580</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1794774547634</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<FreezeXAxis>true</FreezeXAxis>
+					<SamplesToKeep>100</SamplesToKeep>
+				</DataSet>
+			</AnalysisData>
+
+			<Presentation>
+    			<Plot>
+					<Id>1794774277021</Id>
+					<Name><![CDATA[plot]]></Name>
+					<X>100</X><Y>50</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1794774277019</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1794816000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>640</Width>
+					<Height>390</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>560</Width>
+						<Height>300</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Max Roller Coaster Queue]]></Title>
+					<Id>1794774279246</Id>
+					<Expression><![CDATA[dsMaxRCQueue]]></Expression>
+					<Color>-65536</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Max Flat Ride Queue]]></Title>
+					<Id>1794774360779</Id>
+					<Expression><![CDATA[dsMaxFlatQueue]]></Expression>
+					<Color>-16776961</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<HorScaleFromExpression><![CDATA[0]]></HorScaleFromExpression>
+					<HorScaleToExpression><![CDATA[1]]></HorScaleToExpression>
+					<HorScaleType>AUTO</HorScaleType>
+    			</Plot>
+			</Presentation>
+
+			<AllowParallelEvaluations>true</AllowParallelEvaluations>
+			<UseFreeformParameters>false</UseFreeformParameters>
+			<NumberOfRuns>10</NumberOfRuns>
+			<FreeformParamValue>	
+				<Id>1728549634636</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728576688249</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728576718945</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728588512456</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728588512460</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728634921490</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728639125734</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728679521456</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728679524453</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728679527126</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728679529598</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728687053298</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728687053305</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1728689679149</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1791154015313</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910233587</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910243855</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910246909</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910249681</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910251643</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910642751</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910645350</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910651727</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910653841</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792910655831</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792911965659</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792911969537</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792911975264</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792911978175</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792911981794</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792912306265</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1792912377218</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1793580205091</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1793580912263</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1793580969040</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794643304862</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794643562600</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794643667275</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794644075846</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794644152955</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794644191405</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794673911229</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1794774020790</Id>
+			</FreeformParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728549634636</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728576688249</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728576718945</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728588512456</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728588512460</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728634921490</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728639125734</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728679521456</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728679524453</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728679527126</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728679529598</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728687053298</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728687053305</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1728689679149</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1791154015313</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910233587</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910243855</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910246909</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910249681</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910251643</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910642751</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910645350</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910651727</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910653841</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792910655831</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792911965659</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792911969537</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792911975264</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792911978175</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792911981794</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792912306265</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1792912377218</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1793580205091</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1793580912263</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1793580969040</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794643304862</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794643562600</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794643667275</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794644075846</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794644152955</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794644191405</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794673911229</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1794774020790</Id>
+				<Type>RANGE</Type>
+				<From Class="CodeValue">
+					<Code><![CDATA[0.0]]></Code>
+				</From>
+				<To Class="CodeValue">
+					<Code><![CDATA[1.0]]></Code>
+				</To>
+				<Step Class="CodeValue">
+					<Code><![CDATA[0.2]]></Code>
+				</Step>
+			</RangeVariationParamValue>
+			<ModelTimeProperties>
+				<StopOption><![CDATA[Stop at specified time]]></StopOption>
+				<InitialDate><![CDATA[1794736800000]]></InitialDate>	
+				<InitialTime><![CDATA[0.0]]></InitialTime>	
+				<FinalDate><![CDATA[1794754800000]]></FinalDate>	
+				<FinalTime><![CDATA[300.0]]></FinalTime>	
+			</ModelTimeProperties>
+			<PresentationProperties>
+				<EnableZoomAndPanning>true</EnableZoomAndPanning>
+				<Title><![CDATA[ParcAttractionDemo : QueueSensitivityExperiment]]></Title>
+				<EnableDeveloperPanel>true</EnableDeveloperPanel>
+				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+			</PresentationProperties>
+			<ReplicationsProperties>
+				<UseReplication>false</UseReplication>
+				<FixedReplicationsNumber>true</FixedReplicationsNumber>
+				<ReplicationPerIteration>10</ReplicationPerIteration>
+				<MinimumReplication>2</MinimumReplication>
+				<MaximumReplication>10</MaximumReplication>
+				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
+				<ErrorPercent>0.5</ErrorPercent>
+				<ExpressionForConfidenceComputation><![CDATA[0]]></ExpressionForConfidenceComputation>
+			</ReplicationsProperties>
+		</ParamVariationExperiment>	
 	</Experiments>
 	<JavaClasses>
 		<!--   =========   Java Class   ========  -->
@@ -14725,6 +15367,12 @@ public class VisitorGroup {
 		<Resource>
 			<Id>1728474439992</Id>
 			<Path><![CDATA[fond.png]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Id>1794768800106</Id>
+			<Path><![CDATA[visitor_verification_export.csv]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 			<Location>FILE_SYSTEM</Location>
 		</Resource>
